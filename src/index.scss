@@ -1,0 +1,23 @@
+@mixin safari-fix {
+  &:not(:root:root) {
+    @content;
+  }
+}
+
+@mixin chrome-fix {
+  @media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: .001dpcm) {
+    @content;
+  }
+}
+
+@mixin firefox-fix {
+  @-moz-document url-prefix() {
+    @content;
+  }
+}
+
+@mixin ie-fix {
+  @media all and (-ms-high-contrast: none) {
+    @content;
+  }
+}
